@@ -1,0 +1,5 @@
+{
+  "name": "ExamEcho",
+  "description": "An educational AI assistant that generates personalized quizzes from your PDF notes using RAG, complete with evidence-based scoring and feedback.",
+  "requestFramePermissions": []
+}

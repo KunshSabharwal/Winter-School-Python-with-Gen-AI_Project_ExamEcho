@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamEcho | AI Revision Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Marked for Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- KaTeX for Math -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+  
+  :root {
+    --bg-main: #020617; /* Slate 950 */
+    --card-bg: #0f172a; /* Slate 900 */
+    --accent: #6366f1;  /* Indigo 500 */
+  }
+
+  body { 
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif; 
+    background-color: var(--bg-main);
+    color: #f8fafc;
+    margin: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-main); }
+  ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  /* Advanced Prose & Markdown Styling */
+  .prose {
+    color: #94a3b8;
+    font-size: 1.05rem;
+  }
+  .prose h1, .prose h2, .prose h3 {
+    color: #f8fafc;
+    font-weight: 800;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.025em;
+  }
+  .prose h1 { font-size: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 0.5rem; }
+  .prose h2 { font-size: 1.5rem; }
+  .prose h3 { font-size: 1.25rem; color: #cbd5e1; }
+  
+  .prose strong { color: #f1f5f9; font-weight: 700; }
+  .prose ul, .prose ol { margin-left: 1.5rem; margin-bottom: 1.25rem; list-style-type: disc; }
+  .prose ol { list-style-type: decimal; }
+  .prose li { margin-bottom: 0.4rem; }
+  
+  .prose blockquote {
+    border-left: 4px solid var(--accent);
+    background: rgba(99, 102, 241, 0.05);
+    padding: 1rem 1.5rem;
+    border-radius: 0 0.75rem 0.75rem 0;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #cbd5e1;
+  }
+
+  .prose pre {
+    background: #020617 !important;
+    border: 1px solid #1e293b;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  .prose code {
+    background: #1e293b;
+    color: #818cf8;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.375rem;
+    font-size: 0.9em;
+    font-family: ui-monospace, monospace;
+  }
+  .prose pre code {
+    background: transparent;
+    padding: 0;
+    color: #e2e8f0;
+  }
+
+  .prose table {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border-collapse: collapse;
+    border: 1px solid #1e293b;
+  }
+  .prose th {
+    background: #0f172a;
+    padding: 0.75rem;
+    text-align: left;
+    color: #f8fafc;
+    border-bottom: 2px solid #1e293b;
+  }
+  .prose td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #1e293b;
+  }
+
+  .katex-display { margin: 1rem 0; overflow-x: auto; }
+
+  /* Custom Loading Animation */
+  .loader-dots div {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: loader-dots 0.6s infinite alternate;
+  }
+  .loader-dots div:nth-child(2) { animation-delay: 0.2s; }
+  .loader-dots div:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes loader-dots {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0.3; transform: scale(0.6); }
+  }
+
+  .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
